@@ -4,8 +4,11 @@
 @section('title', '入力した内容を表示するサンプルページ')
 @section('content')
 
+{{-- 子テンプレート --}}
+@if (session('status'))<div class="alert alert-success" role="alert">{{ session('status') }}</div>@endif
+
 <p>{{$message}}</p>
-<form class="form-signin" role="form" method="post" action="greeting">
+<form class="form-signin" role="form" method="post" action="/mylaravel/public/greeting">
 <input type="hidden" name="_token" value="{{csrf_token()}}">
 <input type="text" name="onamae" class="form-control" placeholder="名前を文字を入力してください" autofocus>
    {{-- バリデーション --}}

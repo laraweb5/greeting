@@ -15,15 +15,14 @@ Route::get('/','WelcomeController@index');
 //
 Route::get('/link','LinkController@index');
 //
-//Route::get('/bootstrap', 'BootstrapController@index');
-
-//Route::controller('greeting/', 'GreetingController');
-#Route::get('/greeting/show', 'GreetingController@show');
-Route::get('greeting/all', 'GreetingController@all');
-
-Route::get('/greeting/edit/{id}', 'GreetingController@edit');
-
 Route::get('/greeting', 'GreetingController@getIndex');
 Route::post('/greeting', 'GreetingController@postIndex');
 
+# 一覧画面
+Route::get('greeting/all', 'GreetingController@all');
 
+# 編集画面
+Route::get('greeting/edit/{id}', 'GreetingController@edit');
+
+# 編集フォーム⇒UPDATE処理
+Route::patch('greeting/update/{id}', 'GreetingController@update');

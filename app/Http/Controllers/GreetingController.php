@@ -58,16 +58,27 @@ class GreetingController extends Controller
         $data = Greeting::all();
         
         # data連想配列に代入&Viewファイルをlist.blade.phpに指定
-        return view('all', [ 'message' => 'あいさつした人のリスト','data' => $data]);
+        return view('all', ['message' => 'あいさつした人のリスト','data' => $data]);
     }
 
     #greeting/editにアクセスされた場合
     public function edit($id) 
     {
+        #レコードをidで指定
         $data = Greeting::findOrFail($id);
 
         #viewに連想配列を渡す
-        return view('edit', [ 'message' => 'あいさつした人のリスト','data' => $data]);
+        return view('edit',['message' => '編集フォーム','data' => $data]);
+    }
+    
+    #DBの更新処理
+    public function update(Request $request,$id)
+    {
+      $greeting = Greeting::findOrFail($id);
+      $greeting->onamae = $request->input('onamae');
+      $greeting->save();
+      #return redirect('greeting',['status' => 'UPDATE完了！']);　←error!
+      return redirect('greeting')->with('status', 'UPDATE完了!');
     }
     
 }
