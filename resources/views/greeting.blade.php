@@ -5,7 +5,7 @@
 @section('content')
 
 {{-- 子テンプレート --}}
-@if (session('status'))<div class="alert alert-success" role="alert">{{ session('status') }}</div>@endif
+@if (session('status'))<div class="alert alert-success" role="alert" onclick="this.classList.add('hidden')">{{ session('status') }}</div>@endif
 
 <p>{{$message}}</p>
 <form class="form-signin" role="form" method="post" action="/mylaravel/public/greeting">
