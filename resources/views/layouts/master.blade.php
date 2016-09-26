@@ -49,8 +49,7 @@ body {
 </head>
 
 <body>
-
-{{-- ↓↓↓　今回はここ(メニュー)を追加します。　↓↓↓ --}} 
+ 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -63,9 +62,13 @@ body {
         <a class="navbar-brand" href="/mylaravel/public/greeting">簡易フォーム</a>
     </div>
   <div id="navbar" class="collapse navbar-collapse">
+        <?php $var = $_SERVER["REQUEST_URI"]; ?>
+        <?php $link_navi = ""; ?>
+        <?php if(preg_match("/greeting$/", $var)){ $link_navi = "入力フォーム"; } ?>
+        <?php if(preg_match("/all/", $var)){ $link_navi = "一覧表示"; } ?>
         <ul class="nav navbar-nav">
-          <li><a href="/mylaravel/public/greeting">入力フォーム</a></li>
-          <li><a href="/mylaravel/public/greeting/all">一覧表示</a></li>
+          <li @if($link_navi=='入力フォーム')class="active"@endif><a href="/mylaravel/public/greeting">入力フォーム</a></li>
+          <li @if($link_navi=='一覧表示')class="active"@endif><a href="/mylaravel/public/greeting/all">一覧表示</a></li>        
         </ul>
       </div><!--/.nav-collapse -->
     </div>

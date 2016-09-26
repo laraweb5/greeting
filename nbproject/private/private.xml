@@ -5,9 +5,7 @@
         <group>
             <file>file:/C:/xampp/htdocs/mylaravel/resources/views/layouts/master.blade.php</file>
             <file>file:/C:/xampp/htdocs/mylaravel/app/Http/Controllers/GreetingController.php</file>
-            <file>file:/C:/xampp/htdocs/mylaravel/resources/views/edit.blade.php</file>
             <file>file:/C:/xampp/htdocs/mylaravel/resources/views/all.blade.php</file>
-            <file>file:/C:/xampp/htdocs/mylaravel/app/Http/routes.php</file>
             <file>file:/C:/xampp/htdocs/mylaravel/resources/views/greeting.blade.php</file>
         </group>
     </open-files>
