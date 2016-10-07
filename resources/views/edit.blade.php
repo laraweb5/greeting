@@ -5,7 +5,7 @@
 @section('content')
 
 <p>{{$message}}</p>
-<form class="form-signin" role="form" method="post" action="/mylaravel/public/greeting/update/{{$data->id}}">
+<form class="form-signin" role="form" method="post" action="{{url('/greeting/update',$data->id)}}">
 <input type="hidden" name="_token" value="{{csrf_token()}}">
 {{-- 隠しフィールド --}}
 <input type="hidden" name="_method" value="PATCH">

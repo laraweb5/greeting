@@ -59,7 +59,7 @@ body {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/mylaravel/public/greeting">簡易フォーム</a>
+        <a class="navbar-brand" href="/greeting">簡易フォーム</a>
     </div>
   <div id="navbar" class="collapse navbar-collapse">
         <?php $var = $_SERVER["REQUEST_URI"]; ?>
@@ -67,8 +67,8 @@ body {
         <?php if(preg_match("/greeting$/", $var)){ $link_navi = "入力フォーム"; } ?>
         <?php if(preg_match("/all/", $var)){ $link_navi = "一覧表示"; } ?>
         <ul class="nav navbar-nav">
-          <li @if($link_navi=='入力フォーム')class="active"@endif><a href="/mylaravel/public/greeting">入力フォーム</a></li>
-          <li @if($link_navi=='一覧表示')class="active"@endif><a href="/mylaravel/public/greeting/all">一覧表示</a></li>        
+          <li @if($link_navi=='入力フォーム')class="active"@endif><a href="/greeting">入力フォーム</a></li>
+          <li @if($link_navi=='一覧表示')class="active"@endif><a href="/greeting/all">一覧表示</a></li>        
         </ul>
       </div><!--/.nav-collapse -->
     </div>

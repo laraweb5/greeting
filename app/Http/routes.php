@@ -26,3 +26,6 @@ Route::get('greeting/edit/{id}', 'GreetingController@edit');
 
 # 編集フォーム⇒UPDATE処理
 Route::patch('greeting/update/{id}', 'GreetingController@update');
+
+# 削除
+Route::delete('greeting/destroy/{id}', 'GreetingController@destroy');
