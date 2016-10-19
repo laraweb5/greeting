@@ -3,6 +3,12 @@
 @extends('layouts.master')
 @section('title', '入力した内容を表示するサンプルページ')
 @section('content')
+
+{{-- ↓↓↓ Flashメッセージ ↓↓↓ --}}
+@if (session('status'))
+<div class="alert alert-success" role="alert" onclick="this.classList.add('hidden')">{{ session('status') }}</div>@endif
+
+
 <p>{{$message}}</p>
 
 <table class="table table-striped">
@@ -13,13 +19,11 @@
           <td>{{$val->onamae}} さん</td>
           <td><a href="{{ action('GreetingController@edit', $val->id) }}" class="btn btn-primary btn-sm">編集</a></td>
           <td>
-          <!-- ↓↓↓今回記述した箇所 ↓↓↓ -->
           <form action="{{ action('GreetingController@destroy', $val->id) }}" id="form_{{ $val->id }}" method="post">
           {{ csrf_field() }}
           {{ method_field('delete') }}
           <a href="#" data-id="{{ $val->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);">削除</a>
           </form>
-          <!-- ↑↑↑ 今回記述した箇所 ↑↑↑ -->
 		  </td>
       </tr>
   @endforeach

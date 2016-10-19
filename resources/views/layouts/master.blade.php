@@ -64,16 +64,15 @@ body {
   <div id="navbar" class="collapse navbar-collapse">
         <?php $var = $_SERVER["REQUEST_URI"]; ?>
         <?php $link_navi = ""; ?>
-        <?php if(preg_match("/greeting$/", $var)){ $link_navi = "入力フォーム"; } ?>
-        <?php if(preg_match("/all/", $var)){ $link_navi = "一覧表示"; } ?>
+        <?php if(preg_match("/greeting$|store/", $var)){ $link_navi = "一覧表示"; } ?>
+        <?php if(preg_match("/create/", $var)){ $link_navi = "入力フォーム"; } ?>
         <ul class="nav navbar-nav">
-          <li @if($link_navi=='入力フォーム')class="active"@endif><a href="/greeting">入力フォーム</a></li>
-          <li @if($link_navi=='一覧表示')class="active"@endif><a href="/greeting/all">一覧表示</a></li>        
+          <li @if($link_navi=='一覧表示')class="active"@endif><a href="/greeting/">一覧表示</a></li>
+          <li @if($link_navi=='入力フォーム')class="active"@endif><a href="/greeting/create">入力フォーム</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
 </nav>
-{{-- ↑↑↑　今回はここ(メニュー)を追加します。　↑↑↑ --}} 
 
 <div class="container" style="margin-top: 30px;">
 <h2>@yield('title')</h2>
