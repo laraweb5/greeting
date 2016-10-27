@@ -64,7 +64,7 @@ body {
   <div id="navbar" class="collapse navbar-collapse">
         <?php $var = $_SERVER["REQUEST_URI"]; ?>
         <?php $link_navi = ""; ?>
-        <?php if(preg_match("/greeting$|store/", $var)){ $link_navi = "一覧表示"; } ?>
+        <?php if(preg_match("/greeting$|store|page/", $var)){ $link_navi = "一覧表示"; } ?>
         <?php if(preg_match("/create/", $var)){ $link_navi = "入力フォーム"; } ?>
         <ul class="nav navbar-nav">
           <li @if($link_navi=='一覧表示')class="active"@endif><a href="/greeting/">一覧表示</a></li>
