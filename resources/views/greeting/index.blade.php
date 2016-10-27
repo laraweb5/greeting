@@ -1,5 +1,3 @@
-{{-- 子テンプレート --}}
-{{-- resources/all.blade.php --}}
 @extends('layouts.master')
 @section('title', '入力した内容を表示するサンプルページ')
 @section('content')
@@ -10,6 +8,12 @@
 
 
 <p>{{$message}}</p>
+
+<!--↓ページネーション↓(今回はここを追加)-->
+<div class="paginate">
+	{{ $data->links() }}
+</div>
+<!--↑ページネーション↑-->
 
 <table class="table table-striped">
   <!-- loop -->
@@ -29,7 +33,13 @@
   @endforeach
 </table>
 
-<!-- ↓↓↓今回記述した箇所 ↓↓↓ -->
+<!--↓ページネーション↓(今回はここを追加)-->
+<div class="paginate">
+	{{ $data->links() }}
+</div>
+<!--↑ページネーション↑-->
+
+
 <!--
 /************************************
 

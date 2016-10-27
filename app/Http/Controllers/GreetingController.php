@@ -21,9 +21,10 @@ class GreetingController extends Controller
  --------------------------------------------------------*/
 public function index()
 {
-  # 新しい順に並べる(今回新しく追加)
-  $data = Greeting::latest('created_at')->get();
-  return view('greeting.index')->with('message','あいさつした人のリスト')->with('data',$data);
+  # $data = Greeting::latest('created_at')
+  $data = Greeting::latest('created_at')->paginate(10);
+
+  return view('greeting.index')->with('message','登録した人のリスト')->with('data',$data);
 }
 
 
@@ -32,7 +33,7 @@ public function index()
  --------------------------------------------------------*/
 public function create()
 {
-  return view('greeting.create')->with('message','あなたの名前を入力してください。');
+  return view('greeting.create')->with('message','登録したい人の名前を入力してください。');
 }
 
 
